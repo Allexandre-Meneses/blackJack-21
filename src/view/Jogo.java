@@ -1,4 +1,7 @@
+package view;
 import java.util.ArrayList;
+
+import models.Partida;
 
 public class Jogo {
     ArrayList<Partida> partidas = new ArrayList<Partida>();

@@ -1,11 +1,14 @@
+package models;
 import java.util.ArrayList;
 
-public class Partida {
-    ArrayList<Jogador> jogadores = new ArrayList<Jogador>();
-    ArrayList<Jogador> vencedores = new ArrayList<Jogador>();
-    Baralho baralho;
+import view.IU;
 
-    Partida() {
+public class Partida {
+    public ArrayList<Jogador> jogadores = new ArrayList<Jogador>();
+    ArrayList<Jogador> vencedores = new ArrayList<Jogador>();
+    public Baralho baralho;
+
+    public Partida() {
         this.baralho = new Baralho();
     }
 

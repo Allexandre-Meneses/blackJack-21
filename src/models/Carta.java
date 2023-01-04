@@ -1,3 +1,4 @@
+package models;
 
 public class Carta {
     String nome, naipe;

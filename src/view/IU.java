@@ -1,5 +1,8 @@
+package view;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import models.Jogador;
 
 public class IU {
     static Scanner sc = new Scanner(System.in);
