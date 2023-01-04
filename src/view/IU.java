@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import models.Jogador;
+import models.Partida;
 
 public class IU {
     static Scanner sc = new Scanner(System.in);
@@ -19,6 +20,14 @@ public class IU {
             case "1":
                 // Método para criar uma nova partida
                 jogo.novaPartida();
+                return true;
+            case "2":
+                // Método para mostrar placar dos jogadores
+                jogo.mostrarPlacar();
+                return true;
+            case "3":
+                // Método para mostrar o histórico de Partidas
+                jogo.mostrarHistoricoDePartidas();
                 return true;
             case "0":
                 return false;
@@ -70,7 +79,7 @@ public class IU {
         } else {
             System.out.println("O(s) Vencedor(es) da Partida:");
             for (Jogador tmp : vencedores) {
-                System.out.println(tmp);
+                System.out.println(tmp + " com " + tmp.somarCartasNaMao() + " pontos Venceu!");
             }
         }
     }
@@ -78,5 +87,32 @@ public class IU {
     // Método que diz quem está recebendo as cartas
     public static void dizQuemRecebe(String nome) {
         System.out.println(nome + ", Receba e some suas Cartas!");
+    }
+
+    public static boolean mesmosjogadores() {
+        System.out.print("Deseja jogar com os mesmos jogadores da partida anterior?(S/N) ");
+        switch (sc.next().toUpperCase()){
+            case "S":
+                return true;
+            case "N":
+                return false;
+            default:
+                return mesmosjogadores();
+        }
+    }
+
+    public static void mostrarHistoricoDePartidas(ArrayList<Partida> partidas) {
+        for (Partida partida : partidas) {
+            System.out.println((partidas.indexOf(partida)+1) + "a Partida!");
+            System.out.println("---------------------------------------------");
+            if (partida.vencedores.isEmpty()) {
+                System.out.println("Partida Empatada, Não Houve Vencedores!");
+            } else {
+                System.out.println("O(s) vencedor(es) da Partida foram: ");
+            }
+            for (Jogador vencedor : partida.vencedores) {
+                System.out.println(vencedor + " com " + vencedor.somarCartasNaMao() + " pontos!");
+            }
+        }
     }
 }

@@ -4,9 +4,14 @@ import java.util.ArrayList;
 public class Jogador {
     String nome;
     ArrayList<Carta> cartasNaMao = new ArrayList<Carta>();
+    Integer partidasVencidas = 0;
 
     public Jogador(String nome) {
         this.nome = nome;
+    }
+
+    public Integer getPartidasVencidas() {
+        return partidasVencidas;
     }
 
     // Método que Soma o valor de todas as cartas na mão do Jogador
@@ -26,6 +31,6 @@ public class Jogador {
     @Override
     public String toString() {
         // TODO Auto-generated method stub
-        return nome + " com " + somarCartasNaMao() + " pontos";
+        return nome;
     }
 }
