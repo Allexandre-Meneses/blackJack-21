@@ -30,12 +30,19 @@ public class IU {
                 jogo.mostrarHistoricoDePartidas();
                 return true;
             case "0":
+                jogo.mostrarHistoricoDePartidas();
+                saudacaoFinal();
                 return false;
             default:
                 return true;
         }
 
 
+    }
+
+    // Método que imprime uma saudação ao Final da Execução
+    private static void saudacaoFinal() {
+        System.out.println("Obrigado por Jogar!");
     }
 
     // Método para pegar nome de um Jogador
@@ -60,6 +67,7 @@ public class IU {
 
     // Método para imprimir o nome e perguntar se deseja receber outra carta
     public static boolean receberOutraCarta(String nome) {
+        System.out.println("----------------------------------------");
         System.out.print(nome + ", Deseja receber outra Carta?(S/N) ");
         switch (sc.next().toUpperCase()){
             case "S":
@@ -75,20 +83,27 @@ public class IU {
     // Método para mostrar os vencedores da Partida
     static public void mostrarVencedores(ArrayList<Jogador> vencedores) {
         if (vencedores.isEmpty()) {
+            System.out.println("********************************");
             System.out.println("Empate, todos passaram de 21");
+            System.out.println("********************************");
         } else {
+            System.out.println("************************************");
             System.out.println("O(s) Vencedor(es) da Partida:");
             for (Jogador tmp : vencedores) {
                 System.out.println(tmp + " com " + tmp.somarCartasNaMao() + " pontos Venceu!");
+                System.out.println("****************************************");
             }
         }
     }
 
     // Método que diz quem está recebendo as cartas
     public static void dizQuemRecebe(String nome) {
+        System.out.println("---------------------------------------");
         System.out.println(nome + ", Receba e some suas Cartas!");
+        System.out.println("------------------------------------------");
     }
 
+    // Método que pergunta ao usuário se ele deseja jogar com os mesmos jogadores da partida Anterior
     public static boolean mesmosjogadores() {
         System.out.print("Deseja jogar com os mesmos jogadores da partida anterior?(S/N) ");
         switch (sc.next().toUpperCase()){
@@ -101,8 +116,10 @@ public class IU {
         }
     }
 
+    // Método para imprimir o Histórico de Partidas
     public static void mostrarHistoricoDePartidas(ArrayList<Partida> partidas) {
         for (Partida partida : partidas) {
+            System.out.println("***************************************");
             System.out.println((partidas.indexOf(partida)+1) + "a Partida!");
             System.out.println("---------------------------------------------");
             if (partida.vencedores.isEmpty()) {
@@ -114,5 +131,12 @@ public class IU {
                 System.out.println(vencedor + " com " + vencedor.somarCartasNaMao() + " pontos!");
             }
         }
+        System.out.println("**************************************************");
+    }
+
+    // Método que imprime o tanto de vezes que um jogador venceu
+    public static void mostraPlacar(Jogador jogador) {
+        System.out.println("-------------------------------------------------------------");
+        System.out.println(jogador + " Venceu " + jogador.getPartidasVencidas() + " Partidas");
     }
 }

@@ -6,16 +6,17 @@ import models.Partida;
 
 public class Jogo {
     ArrayList<Partida> partidas = new ArrayList<Partida>();
+    public ArrayList<Jogador> jogadores = new ArrayList<Jogador>();
 
     // Método que cria uma nova partida
     public void novaPartida() {
         Partida p = new Partida();
         if(!partidas.isEmpty() && IU.mesmosjogadores()){
             p.jogadores = partidas.get(partidas.size()-1).jogadores;
-            p.addJogadores();
+            p.addJogadores(this);
             partidas.add(p);
         } else {
-            p.addJogadores();
+            p.addJogadores(this);
             partidas.add(p);
         }
 
@@ -26,8 +27,8 @@ public class Jogo {
     }
 
     public void mostrarPlacar() {
-        for (Jogador jogador : partidas.get(partidas.size()-1).jogadores) {
-            System.out.println(jogador + "Venceu " + jogador.getPartidasVencidas() + " Vencidas");
+        for (Jogador jogador : this.jogadores) {
+            IU.mostraPlacar(jogador);
         }
     }
 

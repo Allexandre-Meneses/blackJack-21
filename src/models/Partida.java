@@ -2,6 +2,7 @@ package models;
 import java.util.ArrayList;
 
 import view.IU;
+import view.Jogo;
 
 public class Partida {
     public ArrayList<Jogador> jogadores = new ArrayList<Jogador>();
@@ -13,19 +14,27 @@ public class Partida {
     }
 
     // Método para adicionar jogadores à partida
-    public void addJogadores() {
+    public void addJogadores(Jogo jogo) {
         // Verificação se já existe jogadores na partida
         // Caso não exista, já adicionar dois jogadores, pois é o número mínimo
         // de Jogadores na Partida
         if ( this.jogadores.isEmpty()) {
             jogadores.add(new Jogador(IU.pegaNome()));
             jogadores.add(new Jogador(IU.pegaNome()));
+            for (Jogador jogador : this.jogadores) {
+                jogo.jogadores.add(jogador);
+            }
         }
 
         // Laço que Verifica se o Usuário quer adicionar mais jogadores
         while(IU.continuarAddJogador()) {
-            jogadores.add(new Jogador(IU.pegaNome()));
+            Jogador newJogador = new Jogador(IU.pegaNome());
+            jogadores.add(newJogador);
+            jogo.jogadores.add(newJogador);
         }
+
+
+
     }
 
     // Método que inicia o laço da Partida
