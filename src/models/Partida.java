@@ -32,9 +32,6 @@ public class Partida {
             jogadores.add(newJogador);
             jogo.jogadores.add(newJogador);
         }
-
-
-
     }
 
     // Método que inicia o laço da Partida
@@ -59,10 +56,10 @@ public class Partida {
     }
 
     public void darCarta(Jogador j) {
-        Carta cartaDaVez = this.baralho.baralho.get(0);
+        Carta cartaDaVez = this.baralho.cartas.get(0);
         System.out.println(cartaDaVez);
         j.cartasNaMao.add(cartaDaVez);
-        this.baralho.baralho.remove(cartaDaVez);
+        this.baralho.cartas.remove(cartaDaVez);
     }
 
     private void quemVenceu() {

@@ -6,6 +6,7 @@ import models.Partida;
 
 public class Jogo {
     ArrayList<Partida> partidas = new ArrayList<Partida>();
+    // Lista com todos os jogadores que jogaram uma ou mais Partidas
     public ArrayList<Jogador> jogadores = new ArrayList<Jogador>();
 
     // Método que cria uma nova partida
@@ -36,6 +37,4 @@ public class Jogo {
         IU.mostrarHistoricoDePartidas(partidas);
 
     }
-
-    
 }
